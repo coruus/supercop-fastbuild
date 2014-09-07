@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /opt/SUNWspro/bin/cc "$@"
+exec /opt/SUNWspro/bin/CC "$@"

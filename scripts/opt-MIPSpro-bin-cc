@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /opt/MIPSpro/bin/cc "$@"
+exec /opt/MIPSpro/bin/CC "$@"
