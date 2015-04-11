@@ -1,3 +1,18 @@
+Changes from 20141014:
+
+   * Updated poly1305/moon.
+   * Updated nistp256/wbl.
+   * New and updated crypto_stream/*/dolbeau.
+   * New reduced-round picipher.
+
+Changes from 20141010:
+
+   * Updated ed448goldilocks implementations.
+   * Added nistp256/mj32 implementation.
+   * Fixed nistp256/wbl implementation.
+   * Fixed chacha*/moon implementation.
+   * New and updated blake*/moon implementations.
+
 Changes from 20140924:
 
    * New crypto_aead/aezv3.

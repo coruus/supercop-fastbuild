@@ -14,8 +14,8 @@ crypto_dh_nistp256_wbl_keypair(unsigned char *pk, unsigned char *sk)
 }
 
 int
-crypto_dh_nistp256_wbl(unsigned char *out, const unsigned char *n,
-                                const unsigned char *p)
+crypto_dh_nistp256_wbl(unsigned char *out, const unsigned char *p,
+                                const unsigned char *n)
 {
         point temp;
         p256unpack(&temp, p);
