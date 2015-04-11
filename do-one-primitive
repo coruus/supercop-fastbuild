@@ -1,13 +1,13 @@
-#!/bin/sh -e
+#!/bin/sh -ex
 
 o=$1
 p=$2
 
-version=`cat version`
+version=$(cat version)
 project=supercop
-shorthostname=`hostname | sed 's/\..*//' | tr -cd '[a-z][A-Z][0-9]' | tr '[A-Z]' '[a-z]'`
+shorthostname=$(hostname | sed 's/\..*//' | tr -cd '[:alnum:]' | tr '[:upper:]' '[:lower:]')
 
-top="`pwd`/bench/$shorthostname"
+top="$(pwd)/bench/${shorthostname}"
 bin="$top/bin"
 lib="$top/lib"
 include="$top/include"
@@ -18,13 +18,11 @@ PATH="/usr/sfw/bin:$PATH"
 PATH="$bin:$PATH"
 export PATH
 
-LD_LIBRARY_PATH="/usr/local/lib/sparcv9:/usr/local/lib:$LD_LIBRARY_PATH"
-LD_LIBRARY_PATH="/usr/sfw/lib/sparcv9:/usr/sfw/lib:$LD_LIBRARY_PATH"
+LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH"
 export LD_LIBRARY_PATH
 
 # and wacky MacOS X
-DYLD_LIBRARY_PATH="/usr/local/lib/sparcv9:/usr/local/lib:$DYLD_LIBRARY_PATH"
-DYLD_LIBRARY_PATH="/usr/sfw/lib/sparcv9:/usr/sfw/lib:$DYLD_LIBRARY_PATH"
+DYLD_LIBRARY_PATH="/usr/local/lib:$DYLD_LIBRARY_PATH"
 export DYLD_LIBRARY_PATH
 
 # and work around bug in GNU sort
@@ -55,7 +53,7 @@ then
     rm -rf "$work"
     mkdir -p "$work"
     cp -pr machineinfo/* "$work"
-    ( cd "$work" && sh do )
+    ( cd "$work" && sh -x do )
 
     echo "=== `date` === building scripts"
     cp -p scripts/* "$bin"
@@ -64,42 +62,42 @@ then
     rm -rf "$work"
     mkdir -p "$work"
     cp -pr okcompilers-short/* "$work"
-    ( cd "$work" && sh do )
+    ( cd "$work" && sh -x do )
     cp -p "$work"/bin/* "$bin"
 
     echo "=== `date` === building cpuid"
     rm -rf "$work"
     mkdir -p "$work"
     cp -pr cpuid/* "$work"
-    ( cd "$work" && sh do )
+    ( cd "$work" && sh -x do )
     cp -pr "$work"/include/* "$include"
 
     echo "=== `date` === building inttypes"
     rm -rf "$work"
     mkdir -p "$work"
     cp -pr inttypes/* "$work"
-    ( cd "$work" && sh do )
+    ( cd "$work" && sh -x do )
     cp -pr "$work"/include/* "$include"
 
     echo "=== `date` === building killafter"
     rm -rf "$work"
     mkdir -p "$work"
     cp -pr killafter/* "$work"
-    ( cd "$work" && sh do )
+    ( cd "$work" && sh -x do )
     cp -p "$work"/bin/* "$bin"
 
     echo "=== `date` === building sinceepoch"
     rm -rf "$work"
     mkdir -p "$work"
     cp -pr sinceepoch/* "$work"
-    ( cd "$work" && sh do )
+    ( cd "$work" && sh -x do )
     cp -p "$work"/bin/* "$bin"
 
     echo "=== `date` === building cpucycles"
     rm -rf "$work"
     mkdir -p "$work"
     cp -pr cpucycles/* "$work"
-    ( cd "$work" && sh do )
+    ( cd "$work" && sh -x do )
     cp -pr "$work"/lib/* "$lib"
     cp -pr "$work"/include/* "$include"
 
