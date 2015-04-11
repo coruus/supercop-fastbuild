@@ -20,6 +20,8 @@ after each call to do-one-primitive.)
 I've also removed most of the compilers from okcompilers/{c,cpp} and told the compilers
 to produce debugging information by default.
 
-Source from Andrew Moon's mirror of [Supercop][supercop] at <floodyberry/supercop>
 
-[supercop]: http://bench.cr.yp.to/supercop.html
+Original source: http://hyperelliptic.org/ebats/supercop-20141010.tar.bz2
+
+Supercop: http://bench.cr.yp.to/supercop.html
+
